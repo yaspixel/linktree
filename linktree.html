@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y. Oiwa</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
+
+  <!--CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- QR generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"
+    integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+  <header>
+
+    <img id="tux" src="tux.png" alt="tux: a penguin">
+    <h1>Yasushi Oiwa</h1>
+  </header>
+  <main>
+
+    <ul>
+      <li>
+        <a href="https://twitter.com/yaspixel_jp" target="_blank">Twitter (@yaspixel_jp)</a>
+      </li>
+      <li>
+        <a href="https://instagram.com/d45am7a2fs?igshid=YmMyMTA2M2Y=" target="_blank">Instagram (@d45am7a2fs)</a>
+      </li>
+      <li>
+        <a href="https://line.me/ti/p/H2DYjVp1jW" target="_blank">LINE</a>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <h2 id="btn">Show / Hide QR code</h2>
+    <canvas id="qr"></canvas>
+    <script>
+      (function () {
+        var qr = new QRious({
+          element: document.getElementById('qr'),
+          value: window.location.href,
+        });
+      })();
+    </script>
+  </footer>
+  <script>
+    const qr = document.getElementById('qr');
+    const btn = document.getElementById('btn');
+
+    window.addEventListener('load', (event) => {
+      qr.style.display = 'none';
+    });
+    btn.addEventListener('click', (event) => {
+      if (qr.style.display === 'none') {
+        qr.style.display = 'block';
+      } else {
+        qr.style.display = 'none';
+      }
+    })
+
+  </script>
+</body>
+
+</html>
